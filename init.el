@@ -162,7 +162,7 @@
 ;;
 (setq vc-handled-backends nil) 
 
-(desktop-save-mode 1)
+(desktop-save-mode 0)
 (defun my-desktop-save ()
   (interactive)
   ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
@@ -189,9 +189,12 @@
  ;; If there is more than one, they won't work right.
  '(global-auto-revert-mode t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(send-mail-function (quote smtpmail-send-it))
  '(session-use-package t nil (session)))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(which-function-mode 1)
 
 (require 'session)
 (add-hook 'after-init-hook 'session-initialize)
